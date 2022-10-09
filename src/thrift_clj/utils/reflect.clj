@@ -13,7 +13,7 @@
   [prefixes]
   (let [builder (FilterBuilder.)]
     (doseq [prefix prefixes]
-      (.include builder (FilterBuilder/prefix prefix)))
+      (.includePackage builder prefix))
     builder))
 
 (defn- create-classpath-urls

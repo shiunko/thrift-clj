@@ -39,18 +39,18 @@
     ?value person-clj person-thr)
   ?protocol :binary :compact :json :tuple)
 
-(tabular
-  (tabular
-    (tabular
-      (fact "about serialize-only protocols"
-        (let [s (serializer ?protocol)
-              data-bytes (value->bytes s ?value)
-              data-string (value->string s ?value)]
-          s => truthy
-          data-bytes => #(instance? byte-class %)
-          data-string => string?
-          (bytes->value s ?target data-bytes) => (thrift/->clj ?target)
-          (string->value s ?target data-string) => (thrift/->clj ?target)))
-      ?target proto-clj proto-thr)
-    ?value person-clj person-thr)
-  ?protocol :simple-json)
+;(tabular
+;  (tabular
+;    (tabular
+;      (fact "about serialize-only protocols"
+;        (let [s (serializer ?protocol)
+;              data-bytes (value->bytes s ?value)
+;              data-string (value->string s ?value)]
+;          s => truthy
+;          data-bytes => #(instance? byte-class %)
+;          data-string => string?
+;          (bytes->value s ?target data-bytes) => (thrift/->clj ?target)
+;          (string->value s ?target data-string) => (thrift/->clj ?target)))
+;      ?target proto-clj proto-thr)
+;    ?value person-clj person-thr)
+;  ?protocol :simple-json)

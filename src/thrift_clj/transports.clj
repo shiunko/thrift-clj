@@ -3,9 +3,10 @@
   thrift-clj.transports
   (:import [org.apache.thrift.transport
             TTransport TSocket TNonblockingSocket 
-            THttpClient TIOStreamTransport 
-            TFramedTransport TFastFramedTransport
+            THttpClient TIOStreamTransport
             TServerSocket TNonblockingServerSocket]
+           [org.apache.thrift.transport.layered
+            TFramedTransport TFastFramedTransport]
            [java.io InputStream OutputStream]
            [java.net InetSocketAddress]))
 
@@ -99,7 +100,7 @@
   (TFastFramedTransport. 
     (->transport t)
     (int (or initial-buffer-size TFastFramedTransport/DEFAULT_BUF_CAPACITY))
-    (int (or max-frame-length TFastFramedTransport/DEFAULT_MAX_LENGTH))))
+    (int (or max-frame-length 16384000))))
 
 ;; ## Client Transports
 

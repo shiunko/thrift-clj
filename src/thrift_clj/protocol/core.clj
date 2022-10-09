@@ -47,10 +47,10 @@
     [_ _]
     json-factory))
 
-(let [simple-json-factory (TSimpleJSONProtocol$Factory.)]
-  (defmethod protocol-factory* :simple-json
-    [_ _]
-    simple-json-factory))
+;(let [simple-json-factory (TSimpleJSONProtocol$Factory.)]
+;  (defmethod protocol-factory* :simple-json
+;    [_ _]
+;    simple-json-factory))
 
 (let [tuple-factory (TTupleProtocol$Factory.)]
   (defmethod protocol-factory* :tuple
